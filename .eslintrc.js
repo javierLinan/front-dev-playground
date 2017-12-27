@@ -5,7 +5,11 @@ module.exports = {
         "node": true,
         "jest/globals": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+      "prettier/react"
+    ],
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -16,6 +20,7 @@ module.exports = {
     "plugins": [
         "react",
         "jest",
+        "prettier",
     ],
     "rules": {
         "indent": [
@@ -36,5 +41,6 @@ module.exports = {
         ],
         "react/jsx-uses-react": "error",
         "react/jsx-uses-vars": "error",
+        "prettier/prettier": ["error", {"trailingComma": "es5", "singleQuote": true, "printWidth": 120}]
     }
 };
