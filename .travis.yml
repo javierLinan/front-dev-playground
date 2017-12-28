@@ -4,10 +4,11 @@ node_js:
 
 addons:
   sonarcloud:
-    organization: "sonarcloud_organization_key"
+    organization: "javierlinan-github"
     branches:
       - master
       - development
+      - /.*/
 
 script:
   - sonar-scanner
