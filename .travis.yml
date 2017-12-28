@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - '6.3.1'
+
+addons:
+  sonarcloud:
+    organization: "sonarcloud_organization_key"
+    branches:
+      - master
+      - development
+
+script:
+  - sonar-scanner
