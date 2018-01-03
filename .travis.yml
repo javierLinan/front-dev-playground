@@ -6,4 +6,3 @@ before_script:
   - 'unzip sonar-scanner.zip'
 after_success:
   - './sonar-scanner-3.0.1.733-linux/bin/sonar-scanner -Dsonar.analysis.mode="preview" -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN -Dsonar.github.oauth=$GITHUB_TOKEN -Dsonar.github.repository=$TRAVIS_REPO_SLUG -Dsonar.github.pullRequest=$TRAVIS_PULL_REQUEST'
-  - './sonar-scanner-3.0.1.733-linux/bin/sonar-scanner -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN'
