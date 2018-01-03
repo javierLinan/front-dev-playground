@@ -1,4 +1,6 @@
 language: node_js
 node_js:
   - '6.3.1'
-after_success: ./scripts/sonarqube.sh
+after_success:
+  - ./scripts/sonarqube.sh
+  - ./scripts/coveralls.sh
