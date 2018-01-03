@@ -1,8 +1,6 @@
 language: node_js
 node_js:
   - '6.3.1'
-before_script:
-  - 'wget -O sonar-scanner.zip https://sonarsource.bintray.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-3.0.1.733-linux.zip'
-  - 'unzip sonar-scanner.zip'
 after_success:
-  - './sonar-scanner-3.0.1.733-linux/bin/sonar-scanner -Dsonar.analysis.mode="preview" -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.login=$SONAR_TOKEN -Dsonar.github.oauth=$GITHUB_TOKEN -Dsonar.github.repository=$TRAVIS_REPO_SLUG -Dsonar.github.pullRequest=$TRAVIS_PULL_REQUEST'
+  - ./scripts/coveralls.sh
+  - ./scripts/sonarqube.sh
