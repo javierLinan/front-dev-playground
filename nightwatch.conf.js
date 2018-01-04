@@ -34,7 +34,7 @@ module.exports = {
       access_key: process.env.SAUCE_ACCESS_KEY, // export your environment variables (see readme)
       globals: {
         waitForConditionTimeout: 10000, // wait for content on the page before continuing
-        launch_url: 'http://localhost', // we're testing a Public or "staging" site on Saucelabs
+        launch_url: 'http://localhost:3000', // we're testing a Public or "staging" site on Saucelabs
       },
       desiredCapabilities: {
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER, // needed for sauce-connect, i.e for testing localhost on saucelabs
