@@ -1,0 +1,31 @@
+# https://docs.travis-ci.com/user/sonarcloud/
+language: node_js
+
+node_js:
+  - stable
+
+cache:
+  directories:
+    - node_modules
+
+addons:
+  sauce_connect: true
+  sonarcloud:
+    # sonarcloud organization name (account ->  organizations)
+    organization: javierlinan-github
+    # By default, the SonarCloud add-on only analyzes the master branch
+    branches:
+      - master
+      - develop
+      - "^feature/.*$"
+    token:
+       # Encrypted sonarcloud token (account -> security)
+       secure: "QnCEu/q5np1Zv1xrI1pOs78rCJd4w59YZGH82P6NB7UoBf6+s65Rfo5+HPUk81IeTpNk8gtcAEPa8294H8fOva4geyC3qrbrb7KafYgJYc3OqFkdwUB3/1Lz42JfScdS+3PvLRpL5cHCP8ZdfXHWyVtsjLPRytv11BvdNH+ojFE868/EORBrC1bSGsaZN9KzRDxuotDjZCZnGIsiRX9ADv6VGY2ysrrgxO+HgHLzTGBTysxVXcLjY+y3qcIPK4omcKE9diWOeC+tPCWjVE3vS8iFI14DCVCMzgSWUTU5EmgE0WlgjQ18MpcRImE6xj3/kHXsd/mriXkxkV4JHkkUNl8Yvwna14WAKJ79bVybjyEW7dKHrFN70CSKNASS/as26Y8+3mRTT8qvU178PrmhtTNej0JGFzIx50x5Xx5EFfucdqWxuNizjzJAtuIsRAXgKWVPuj6W2S+4cgw4roJHRsZVSMfRoYQqZEoMRNK7pvPECjZtWn+6T3Y4lW6beVoQOXhRbx9xCUGifNuWob3/mE2t0tseaR2mikX3QxdCvRAV4+Z3tYpuIsmlwnSUGhSQA5vCVAVO9mjt7Rzu0TSKNxMpgHsVeF3OkCIjr2debRV0DRDmMl1OrcmT+UnIuwcYb1mcgsTBdI+KSbTLZO1Csj2X8JOaUQba+qXcgEFKypY="
+
+script:
+  - npm run test
+  - ./scripts/e2e.sh
+
+after_success:
+  - ./scripts/coveralls.sh
+  - sonar-scanner
