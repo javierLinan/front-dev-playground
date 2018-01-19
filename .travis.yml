@@ -8,11 +8,11 @@ cache:
     - node_modules
 
 script:
-  - npm run test
-  - ./scripts/e2e.sh
+  - ./scripts/sonarqube.sh
+  # - npm run test
+  # - ./scripts/e2e.sh
 addons:
   sauce_connect: true
 
 after_success:
-  - ./scripts/coveralls.sh
-  - ./scripts/sonarqube.sh
+  # - ./scripts/coveralls.sh
