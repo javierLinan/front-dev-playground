@@ -22,10 +22,6 @@ class App extends Component {
       console.log("a is not NaN"); // this statement is not necessarily true
     }
 
-    $have_time = true;
-    $have_money = false;
-    $take_vacation = $have_time and $have_money;  // Noncompliant. $take_vacation == true.
-
     eval = 17; // Noncompliant
     arguments++; // Noncompliant
     ++eval; // Noncompliant
